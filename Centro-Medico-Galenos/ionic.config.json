@@ -1,7 +1,0 @@
-{
-  "name": "Centro-Medico-Galenos",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
