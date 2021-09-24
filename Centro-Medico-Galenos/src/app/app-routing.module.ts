@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -12,9 +12,14 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'toma-horas',
-    loadChildren: () => import('./toma-horas/toma-horas.module').then( m => m.TomaHorasPageModule)
+    path: 'tomahoras',
+    loadChildren: () => import('./pages/toma-horas/toma-horas.module').then( m => m.TomaHorasPageModule)
   },
+  {
+    path: 'tomahoras2',
+    loadChildren: () => import('./pages/toma-horas-2/tomahoras2.module').then( m => m.Tomahoras2PageModule)
+  },
+
 ];
 
 @NgModule({
