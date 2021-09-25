@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'tomahoras2',
     loadChildren: () => import('./pages/toma-horas-2/tomahoras2.module').then( m => m.Tomahoras2PageModule)
+  },  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+
 
 ];
 
