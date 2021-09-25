@@ -16,15 +16,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/toma-horas/toma-horas.module').then( m => m.TomaHorasPageModule)
   },
   {
-    path: 'tomahoras2',
-    loadChildren: () => import('./pages/toma-horas-2/tomahoras2.module').then( m => m.Tomahoras2PageModule)
-  },
-  {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
-
-
+  {
+    path: 'tomahoras/horas-disponibles',
+    loadChildren: () => import('./pages/toma-horas/horas-disponibles/horas-disponibles.module').then( m => m.HorasDisponiblesPageModule)
+  },
 ];
 
 @NgModule({
