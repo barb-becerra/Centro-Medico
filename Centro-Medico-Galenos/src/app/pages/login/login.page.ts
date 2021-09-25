@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
     this.formLogin = this.fb.group({
       'name': new FormControl("",Validators.required),
       'password': new FormControl("",Validators.required)
-    })
+    });
   }
 
   ngOnInit() {
