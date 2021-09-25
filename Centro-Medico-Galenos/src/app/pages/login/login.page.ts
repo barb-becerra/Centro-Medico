@@ -1,5 +1,6 @@
+import { AlertController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import{
+import {
   FormGroup,
   FormControl,
   Validators,
@@ -14,14 +15,45 @@ export class LoginPage implements OnInit {
 
   formLogin: FormGroup;
 
-  constructor(public fb: FormBuilder) { 
+  constructor(public fb: FormBuilder, public alertController: AlertController) {
     this.formLogin = this.fb.group({
-      'name': new FormControl("",Validators.required),
-      'password': new FormControl("",Validators.required)
+      'name': new FormControl("", Validators.required),
+      'password': new FormControl("", Validators.required)
     });
   }
 
   ngOnInit() {
   }
+  async ingresar() {
+    var f = this.formLogin.value;
+    var user = JSON.parse(localStorage.getItem('user'));
+    if (user.name == f.name && user.password == f.password) {
+      console.log('Ingresar');
+      const alert = await this.alertController.create({
+          cssClass: 'my-custom-class',
+          header: 'Sesion Iniciada!',
+          message: 'En la futura versión verás tus opciones disponibles',
+          buttons: [
+          { 
+            text: 'Entiendo!',
+            handler: () => {
+                console.log('Confirm Okay');
+              }
+          }
+          ]
+        });
+    
+        await alert.present();
 
+    } else {
+      const alert = await this.alertController.create({
+        header: 'Datos incorrectos',
+        message: 'Usuario no registrado!,  Por favor registrate antes de intentar iniciar sesion.',
+        buttons: ['Entendido!']
+      });
+
+      await alert.present();
+      return;
+    }
+  }
 }
