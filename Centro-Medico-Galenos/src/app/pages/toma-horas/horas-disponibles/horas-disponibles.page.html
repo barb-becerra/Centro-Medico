@@ -7,10 +7,21 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-avatar slot="start">
-        <img src="https://clinicasm-ws.clinicasantamaria.cl/bus-backend/Content/images/professionals/PABLOALBERTOREYESSANCHEZ.png">
-      </ion-avatar>
-      <ion-label>NOMBRE DOCTOR</ion-label>
+      <ion-col>
+        <ion-row>
+          <ion-avatar>
+            <img src="https://clinicasm-ws.clinicasantamaria.cl/bus-backend/Content/images/professionals/PABLOALBERTOREYESSANCHEZ.png">
+          </ion-avatar>
+          <ion-label>NOMBRE DOCTOR</ion-label>
+        </ion-row>
+        <ion-row class="ion-margin-top">
+          <div>
+            <mat-card>
+              <mat-calendar (selectedChange)="selected = $event"></mat-calendar>
+            </mat-card>
+          </div>
+        </ion-row>
+      </ion-col>     
     </ion-item>
   </ion-list>
 </ion-content>

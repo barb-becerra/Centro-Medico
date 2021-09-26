@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StatusBarPlugin } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-horas-disponibles',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./horas-disponibles.page.scss'],
 })
 export class HorasDisponiblesPage implements OnInit {
+
 
   constructor() { }
 

@@ -4,7 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatCardModule} from '@angular/material/card';
+
 
 import { HorasDisponiblesPageRoutingModule } from './horas-disponibles-routing.module';
 
@@ -16,7 +19,9 @@ import { HorasDisponiblesPage } from './horas-disponibles.page';
     FormsModule,
     IonicModule,
     MatDatepickerModule,
-    HorasDisponiblesPageRoutingModule
+    MatNativeDateModule,
+    MatCardModule,
+    HorasDisponiblesPageRoutingModule,
   ],
   declarations: [HorasDisponiblesPage]
 })
