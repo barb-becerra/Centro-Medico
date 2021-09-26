@@ -7,7 +7,7 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Login</ion-card-title>
+      <ion-card-title>Inicio de Sesion</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]="formLogin">
@@ -29,8 +29,6 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar color="primary">
-    <ion-button slot="end">No tienes cuenta?
-      <ion-button [routerLink]=" ['./signup'] "><b>Registrarme</b></ion-button>
-    </ion-button>
+    <ion-button slot="end" [routerLink]=" ['./signup'] ">No tienes cuenta? Registrate aqui!</ion-button>
   </ion-toolbar>
 </ion-footer>
