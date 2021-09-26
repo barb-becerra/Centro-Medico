@@ -5,14 +5,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list class="ion-margin-top">
     <ion-item>
       <ion-col>
         <ion-row>
           <ion-avatar>
             <img src="https://clinicasm-ws.clinicasantamaria.cl/bus-backend/Content/images/professionals/PABLOALBERTOREYESSANCHEZ.png">
           </ion-avatar>
-          <ion-label>NOMBRE DOCTOR</ion-label>
+          <ion-label class="ion-margin-start">NOMBRE DOCTOR</ion-label>
         </ion-row>
         <ion-row class="ion-margin-top">
           <div>
@@ -20,6 +20,9 @@
               <mat-calendar (selectedChange)="selected = $event"></mat-calendar>
             </mat-card>
           </div>
+        </ion-row>
+        <ion-row class="ion-margin-top">
+          <ion-button>SELECCIONAR</ion-button>
         </ion-row>
       </ion-col>     
     </ion-item>
