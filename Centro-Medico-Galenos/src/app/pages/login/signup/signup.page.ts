@@ -36,6 +36,23 @@ export class SignupPage implements OnInit {
   
       await alert.present();
       return;
+    }else{
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        header: 'Usuario Registrado!',
+        message: 'Ya puedes dirigirte a iniciar sesion! ;)',
+        buttons: [
+        { 
+          text: 'Entiendo!',
+          handler: () => {
+              console.log('Confirm Okay');
+            }
+        }
+        ]
+      });
+  
+      await alert.present();
+
     }
     var user = {
       name: f.name,
