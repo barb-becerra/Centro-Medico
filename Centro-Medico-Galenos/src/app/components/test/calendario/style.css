@@ -1,0 +1,50 @@
+.nomdia{
+    border-style: solid;
+    background-color: rgb(76, 146, 238);
+    border-color: rgb(76, 146, 238);
+    border-radius: 10%;
+    color: white;
+    font-weight: bold;
+    margin: 1px;
+    padding: 0px;
+    width: 14,28571428571429%;
+}
+
+.diasanteriores, .otromes{
+    border-style:inherit;
+    background-color: rgba(177, 165, 165, 0.418);
+    border-radius: 10%;
+    color: rgb(143, 142, 142);
+    font-weight: bold;
+    padding: 10px;
+    margin: 2px
+}
+
+.dia{
+    border-style:inherit;
+    background-color: rgb(173, 170, 170);
+    border-radius: 10%;
+    color: rgb(61, 61, 61);
+    font-weight: bold;
+    padding: 10px;
+    margin: 2px
+}
+
+.disponible{
+    border-style:inherit;
+    background-color: rgb(171, 216, 103);
+    border-radius: 10%;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    margin: 2px
+}
+
+.calendario{
+    width: 100%;
+    margin: 15px;
+}
+
+.dia, .disponible{
+    cursor: pointer;
+}
