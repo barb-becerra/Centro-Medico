@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: TomaHorasPage
+  },  {
+    path: 'especialidades',
+    loadChildren: () => import('./especialidades/especialidades.module').then( m => m.EspecialidadesPageModule)
   }
+
 ];
 
 @NgModule({
