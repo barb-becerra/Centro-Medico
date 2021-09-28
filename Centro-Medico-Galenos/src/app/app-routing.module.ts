@@ -12,6 +12,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: '',
+    redirectTo: 'tomahoras',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    redirectTo: 'tomahoras/horas-disponibles',
+    pathMatch: 'full'
+  },
+  {
     path: 'tomahoras',
     loadChildren: () => import('./pages/toma-horas/toma-horas.module').then( m => m.TomaHorasPageModule)
   },
