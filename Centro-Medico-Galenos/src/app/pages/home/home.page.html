@@ -35,10 +35,8 @@
       <ion-button [routerLink]=" ['/tomahoras/horas-disponibles'] ">
         Ver horas disponibles
       </ion-button>
-      <ion-button [routerLink]=" [''] ">
-        Especialades</ion-button
-      >
-      <ion-button [routerLink]=" [''] "> Doctores</ion-button>
+      <ion-button (click)="AlertaPagina()">Especialades</ion-button>
+      <ion-button (click)="AlertaPagina()"> Doctores</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
