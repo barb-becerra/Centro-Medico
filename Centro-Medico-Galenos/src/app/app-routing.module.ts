@@ -1,3 +1,4 @@
+import { EspecialidadesPageModule } from './pages/toma-horas/especialidades/especialidades.module';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -22,6 +23,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: '',
+    redirectTo: 'tomahoras/especialidades',
+    pathMatch: 'full'
+  },
+  {
     path: 'tomahoras',
     loadChildren: () => import('./pages/toma-horas/toma-horas.module').then( m => m.TomaHorasPageModule)
   },
@@ -32,6 +38,10 @@ const routes: Routes = [
   {
     path: 'tomahoras/horas-disponibles',
     loadChildren: () => import('./pages/toma-horas/horas-disponibles/horas-disponibles.module').then( m => m.HorasDisponiblesPageModule)
+  },
+  {
+    path: 'tomahoras/especialidades',
+    loadChildren: () => import('./pages/toma-horas/especialidades/especialidades.module').then( m => m.EspecialidadesPageModule)
   },
 ];
 
