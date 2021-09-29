@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon';
+import * as moment from 'moment';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MatIconModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
   bootstrap: [AppComponent],
 })
