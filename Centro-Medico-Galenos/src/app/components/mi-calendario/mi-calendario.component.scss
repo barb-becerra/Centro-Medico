@@ -9,7 +9,7 @@
     font-weight: bold;
     margin: 1px;
     padding: 0px;
-    width: 14,28571428571429% !important;
+    display: inline;
 }
 
 .diasanteriores, .otromes{
@@ -24,9 +24,8 @@
     color: rgb(61, 61, 61);
     font-weight: bold;
     border-radius: 10%;
-    padding: 7px;
+    padding: 4px;
     margin: 1px;
-    width: 14,28571428571429% !important;
 }
 
 .disponible{
@@ -49,8 +48,4 @@
     width: 100%;
     padding: 0%;
     margin: 0%;
-}
-
-.largo{
-    width: 100%;
 }
