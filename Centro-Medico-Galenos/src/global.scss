@@ -24,3 +24,18 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+.mat-calendar-body-cell-preview{
+    background-color: red;
+}
+
+.th{
+    border-style: solid;
+    background-color: rgb(76, 146, 238);
+    border-color: rgb(76, 146, 238);
+    border-radius: 10%;
+    color: white;
+    font-weight: bold;
+}
