@@ -1,8 +1,15 @@
 <ion-header>
   <ion-toolbar color="primary">
+        
+        <ion-buttons slot="start">
+          <ion-icon (click)="openMenu()" style="font-size: 30px" name="person"></ion-icon>
+        </ion-buttons>
+
     <ion-title>Centro medico Galenos</ion-title>
   </ion-toolbar>
 </ion-header>
+
+
 
 <ion-content>
   <div id="container">
@@ -27,16 +34,3 @@
         </h1>
       </ion-text>
     </div>
-  </ion-card-content>
-
-  <ion-card>
-    <ion-card-content style="text-align: center">
-      <ion-button [routerLink]=" ['/tomahoras'] "> Agendar hora </ion-button>
-      <ion-button [routerLink]=" ['/tomahoras/horas-disponibles'] ">
-        Ver horas disponibles
-      </ion-button>
-      <ion-button (click)="AlertaPagina()">Especialades</ion-button>
-      <ion-button (click)="AlertaPagina()"> Doctores</ion-button>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
