@@ -1,13 +1,8 @@
-<!--<mat-card class="demo-inline-calendar-card">
-  <mat-calendar (selectedChange)="selected = $event"></mat-calendar>
-</mat-card>-->
-
-
 <div class="container d-flex justify-content-center vh-100">
   <div class="calendario">
     <ion-row class="ion-align-items-center">
       <ion-col class="ion-text-center">
-        <ion-button>
+        <ion-button (click)="mesAnterior()">
           <ion-icon name="chevron-back-outline"></ion-icon>
         </ion-button>
       </ion-col>
@@ -15,73 +10,18 @@
         <span><b>{{mes}}</b></span>
       </ion-col>
       <ion-col class="ion-text-center">
-        <ion-button>
+        <ion-button (click)="siguienteMes()">
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>
-    <ion-row class="ion-justify-content-around">
-      <ion-col class="col  nomdia">LUN</ion-col>
-      <ion-col class="col  nomdia">MAR</ion-col>
-      <ion-col class="col  nomdia">MIE</ion-col>
-      <ion-col class="col  nomdia">JUE</ion-col>
-      <ion-col class="col  nomdia">VIE</ion-col>
-      <ion-col class="col  nomdia">SAB</ion-col>
-      <ion-col class="col  nomdia">DOM</ion-col>
-    </ion-row>
-    <ion-row>
-      <div *ngFor="let dia of dias">
-        <div class="ion-col-12 dia">{{dia}}</div>
-      </div>
-    </ion-row>
 
-    <!--<div class="row text-center mt-4">
-      <div class="col dia diasanteriores" onclick="traerDia(1)">1</div>
-      <div class="col dia diasanteriores" onclick="traerDia(2)">2</div>
-      <div class="col dia diasanteriores" onclick="traerDia(3)">3</div>
-      <div class="col dia diasanteriores" onclick="traerDia(4)">4</div>
-      <div class="col dia diasanteriores" onclick="traerDia(5)">5</div>
-      <div class="col dia diasanteriores" onclick="traerDia(6)">6</div>
-      <div class="col dia diasanteriores" onclick="traerDia(7)">7</div>
+    <div class="d-flex flex-wrap text-center">
+      <div class="nomdia" *ngFor="let nom of diasarr" style="width: 13.28571428571429%">{{nom}}</div>
     </div>
-    <div class="row text-center">
-      <div class="col dia diasanteriores" onclick="traerDia(8)">8</div>
-      <div class="col dia diasanteriores" onclick="traerDia(9)">9</div>
-      <div class="col dia diasanteriores" onclick="traerDia(10)">10</div>
-      <div class="col dia diasanteriores" onclick="traerDia(11)">11</div>
-      <div class="col dia diasanteriores" onclick="traerDia(12)">12</div>
-      <div class="col dia diasanteriores" onclick="traerDia(13)">13</div>
-      <div class="col dia diasanteriores" onclick="traerDia(14)">14</div>
-    </div>
-    <div class="row text-center">
-      <div class="col dia diasanteriores" onclick="traerDia(15)">15</div>
-      <div class="col dia diasanteriores" onclick="traerDia(16)">16</div>
-      <div class="col dia diasanteriores" onclick="traerDia(17)">17</div>
-      <div class="col dia diasanteriores" onclick="traerDia(18)">18</div>
-      <div class="col dia" onclick="traerDia(19)">19</div>
-      <div class="col dia" onclick="traerDia(20)">20</div>
-      <div class="col dia" onclick="traerDia(21)">21</div>
-    </div>
-    <div class="row text-center">
-      <div class="col dia" onclick="traerDia(22)">22</div>
-      <div class="col dia disponible" onclick="traerDia(23)">23</div>
-      <div class="col dia" onclick="traerDia(24)">24</div>
-      <div class="col dia" onclick="traerDia(25)">25</div>
-      <div class="col dia" onclick="traerDia(26)">26</div>
-      <div class="col dia" onclick="traerDia(27)">27</div>
-      <div class="col dia" onclick="traerDia(28)">28</div>
-    </div>
-    <div class="row text-center">
-      <div class="col dia" onclick="traerDia(29)">29</div>
-      <div class="col dia" onclick="traerDia(30)">30</div>
-      <div class="col dia" onclick="traerDia(31)">31</div>
-      <div class="col dia otromes">1</div>
-      <div class="col dia otromes">2</div>
-      <div class="col dia otromes">3</div>
-      <div class="col dia otromes">4</div>
-    </div>-->
+
+      <div class="d-flex flex-wrap">
+        <div *ngFor="let dia of dias" class="dia text-center" style="width: 13.28571428571429%">{{dia}}</div>
+      </div>
   </div>
 </div>
-<script src="calendario.js"></script>
-<script type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
