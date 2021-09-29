@@ -28,6 +28,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
     path: 'tomahoras',
     loadChildren: () => import('./pages/toma-horas/toma-horas.module').then( m => m.TomaHorasPageModule)
   },
