@@ -1,16 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title style="text-align: center;">
-      CM Galenos      
-    </ion-title>       
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Centro Medico Galenos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div id="container">
-    <div style="float:center">
-      <ion-img src="../../../../assets/logo.jpeg" style="height: 70px;"></ion-img> 
-    </div> 
+    <div style="float: center">
+      <ion-img
+        src="../../../../assets/logo.jpeg"
+        style="height: 70px"
+      ></ion-img>
+    </div>
   </div>
 </ion-content>
 <ion-content>
@@ -41,8 +42,7 @@
   </ion-item>
 </ion-content>
 
-<ion-content style="text-align: center;">
-  <ion-button color="success">Enviar</ion-button>
+<ion-content style="text-align: center">
+  <ion-button (click)="mensajeEnviado()" color="success">Enviar</ion-button>
   <ion-button color="danger">Cancelar</ion-button>
 </ion-content>
-

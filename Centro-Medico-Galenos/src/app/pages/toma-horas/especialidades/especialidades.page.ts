@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-especialidades',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EspecialidadesPage implements OnInit {
 
-  constructor() { }
+  constructor(public mensajeEn: AlertController, public cancelar: AlertController) {}
 
   ngOnInit() {
   }
+
+    //funcion alerta
+    async mensajeEnviado(){
+      let Alert = await this.mensajeEn.create({
+        message: 'Solicitud enviada',
+        buttons: ['Entendido']
+      });
+    Alert.present();
+      }
+ 
 
 }
