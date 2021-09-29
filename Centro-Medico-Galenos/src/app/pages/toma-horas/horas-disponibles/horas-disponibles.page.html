@@ -15,13 +15,11 @@
           <ion-label class="ion-margin-start">NOMBRE DOCTOR</ion-label>
         </ion-row>
         <ion-row class="ion-margin-top">
-          <div>
-            <mat-card>
-              <mat-calendar (selectedChange)="selected = $event"></mat-calendar>
-            </mat-card>
-          </div>
+          <ion-col class="ion-no-padding">
+            <app-mi-calendario></app-mi-calendario>
+          </ion-col>
         </ion-row>
-        <ion-row class="ion-margin-top">
+        <ion-row class="ion-margin-top ">
           <ion-button>SELECCIONAR</ion-button>
         </ion-row>
       </ion-col>     

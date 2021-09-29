@@ -7,12 +7,12 @@ import { IonicModule } from '@ionic/angular';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
+import { MiCalendarioComponent } from 'src/app/components/mi-calendario/mi-calendario.component';
 
 
 import { HorasDisponiblesPageRoutingModule } from './horas-disponibles-routing.module';
 
 import { HorasDisponiblesPage } from './horas-disponibles.page';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -21,8 +21,8 @@ import { HorasDisponiblesPage } from './horas-disponibles.page';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    HorasDisponiblesPageRoutingModule,
+    HorasDisponiblesPageRoutingModule
   ],
-  declarations: [HorasDisponiblesPage]
+  declarations: [HorasDisponiblesPage,MiCalendarioComponent]
 })
 export class HorasDisponiblesPageModule {}
