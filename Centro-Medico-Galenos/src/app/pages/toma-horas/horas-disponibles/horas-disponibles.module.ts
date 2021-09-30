@@ -9,7 +9,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import { MiCalendarioComponent } from 'src/app/components/mi-calendario/mi-calendario.component';
 
-
 import { HorasDisponiblesPageRoutingModule } from './horas-disponibles-routing.module';
 
 import { HorasDisponiblesPage } from './horas-disponibles.page';

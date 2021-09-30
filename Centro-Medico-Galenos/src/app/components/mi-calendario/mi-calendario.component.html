@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center vh-100">
+<div class="container d-flex justify-content-center">
   <div class="calendario">
     <ion-row class="ion-align-items-center">
       <ion-col class="ion-text-center">
@@ -7,7 +7,7 @@
         </ion-button>
       </ion-col>
       <ion-col class="ion-text-center ion-text-uppercase">
-        <span><b>{{mes}}</b></span>
+        <span><b>{{messtr}}</b></span>
       </ion-col>
       <ion-col class="ion-text-center">
         <ion-button (click)="siguienteMes()">
@@ -15,13 +15,42 @@
         </ion-button>
       </ion-col>
     </ion-row>
-
     <div class="d-flex flex-wrap text-center">
       <div class="nomdia" *ngFor="let nom of diasarr" style="width: 13.28571428571429%">{{nom}}</div>
     </div>
-
-      <div class="d-flex flex-wrap">
-        <div *ngFor="let dia of dias" class="dia text-center" style="width: 13.28571428571429%">{{dia}}</div>
-      </div>
+    <div class="d-flex flex-wrap">
+      <div *ngFor="let dia of dias; let i = index" class="dia text-center" style="width: 13.28571428571429%" (click)="seleccionarDia(dia)" tappable>{{dia}}</div>
+    </div>
+    <ion-row>
+      <ion-list style="width: 100%">
+        <ion-item color="danger" class="ion-margin-top" (click)="seleccionarHora('12:00')">
+          <ion-col size="8">
+            <span>HORA 1</span>
+          </ion-col>
+          <ion-col size="4">
+            <span style="float: right; margin-right: 0px;">12:00</span>
+          </ion-col>
+        </ion-item>
+        <ion-item color="danger" class="ion-margin-top" (click)="seleccionarHora('13:00')">
+          <ion-col size="8">
+            <span>HORA 2</span>
+          </ion-col>
+          <ion-col size="4">
+            <span style="float: right; margin-right: 0px;">13:00</span>
+          </ion-col>
+        </ion-item>
+        <ion-item color="danger" class="ion-margin-top" (click)="seleccionarHora('18:00')">
+          <ion-col size="8">
+            <span>HORA 3</span>
+          </ion-col>
+          <ion-col size="4">
+            <span style="float: right; margin-right: 0px;">18:00</span>
+          </ion-col>
+        </ion-item>
+      </ion-list>
+    </ion-row>
+    <ion-row class="ion-margin-top" style="float: right;">
+      <ion-button (click)="confirmarHora(); presentAlert()">SELECCIONAR</ion-button>
+    </ion-row>
   </div>
 </div>

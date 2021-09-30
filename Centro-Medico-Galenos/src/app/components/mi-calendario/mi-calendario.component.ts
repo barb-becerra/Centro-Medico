@@ -2,6 +2,7 @@ import { isFakeTouchstartFromScreenReader } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { DateAdapter } from "@angular/material/core";
 import * as moment from 'moment';
+import { AlertController } from '@ionic/angular';
 moment.locale('es-ES');
 
 
@@ -13,8 +14,12 @@ moment.locale('es-ES');
 export class MiCalendarioComponent implements OnInit {
 
   public fecha = moment();
-  public mes = this.fecha.format('MMMM');
+  public messtr = this.fecha.format('MMMM');
+  public mes = Number(this.fecha.format('M'));
   public ultimosDiasarr;
+  public historial = [];
+  public diaSeleccionado = 0;
+  public horaSeleccionada;
 
   public dias;
   public innerWidth: any;
@@ -28,7 +33,7 @@ export class MiCalendarioComponent implements OnInit {
   public diasarr = [];
 
 
-  constructor(date: DateAdapter<Date>) {
+  constructor(date: DateAdapter<Date>, public alertController: AlertController) {
     // retorna 1 como primer día de la semana
     date.getFirstDayOfWeek = () => 1;
   }
@@ -50,13 +55,13 @@ export class MiCalendarioComponent implements OnInit {
   {
     this.fecha.add(1,'M');
     this.dias = this.crearCalendario(this.fecha);
-    this.mes = this.fecha.format('MMMM');
+    this.messtr = this.fecha.format('MMMM');
   }
   public mesAnterior()
   {
     this.fecha.subtract(1,'M');
     this.dias = this.crearCalendario(this.fecha);
-    this.mes = this.fecha.format('MMMM');
+    this.messtr = this.fecha.format('MMMM');
   }
 
   public tamaño(tamaño){
@@ -70,6 +75,33 @@ export class MiCalendarioComponent implements OnInit {
         this.diasarr.push(this.nomdias[i].slice(0,3));
       }
     }
+  }
+
+  public seleccionarDia(dia){
+    this.diaSeleccionado= dia;
+  }
+
+  public seleccionarHora(i){
+    this.horaSeleccionada = i;
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirmacion',
+      message: "Se ha confirmado su hora para el "+this.diaSeleccionado+" de "+this.messtr+" a las "+this.horaSeleccionada,
+      buttons: ['OK']
+    });
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+  }
+
+  public confirmarHora(){
+    let confirmar = "Se ha confirmado su hora para el "+this.diaSeleccionado+" de "+this.messtr+" a las "+this.horaSeleccionada;
+    this.historial.push(confirmar);
+    console.log(confirmar);
   }
 
   ngOnInit() {

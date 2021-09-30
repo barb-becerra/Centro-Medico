@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import * as moment from 'moment';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
