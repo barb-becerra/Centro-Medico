@@ -2,7 +2,7 @@ import { isFakeTouchstartFromScreenReader } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { DateAdapter } from "@angular/material/core";
 import * as moment from 'moment';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController} from '@ionic/angular';
 moment.locale('es-ES');
 
 
@@ -33,7 +33,7 @@ export class MiCalendarioComponent implements OnInit {
   public diasarr = [];
 
 
-  constructor(date: DateAdapter<Date>, public alertController: AlertController) {
+  constructor(date: DateAdapter<Date>, public alertController: AlertController, private menu: MenuController) {
     // retorna 1 como primer día de la semana
     date.getFirstDayOfWeek = () => 1;
   }
@@ -102,6 +102,10 @@ export class MiCalendarioComponent implements OnInit {
     let confirmar = "Se ha confirmado su hora para el "+this.diaSeleccionado+" de "+this.messtr+" a las "+this.horaSeleccionada;
     this.historial.push(confirmar);
     console.log(confirmar);
+  }
+
+  openMenu(){
+    this.menu.open();
   }
 
   ngOnInit() {
