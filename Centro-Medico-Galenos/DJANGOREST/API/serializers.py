@@ -26,7 +26,7 @@ class ExamenSerializer(serializers.ModelSerializer):
         model = Examen 
         fields = '__all__'
 
-class centroMedicoerializer(serializers.ModelSerializer):
+class centroMedicoSerializer(serializers.ModelSerializer):
     class Meta:
         model = centroMedico 
         fields = '__all__'
