@@ -6,6 +6,10 @@ import {
   Validators,
   FormBuilder
 } from '@angular/forms';
+
+import { CrudService } from 'src/app/servicios/crud.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,17 +17,30 @@ import {
 })
 export class LoginPage implements OnInit {
 
+  arrayUsuarios: any;
+
   formLogin: FormGroup;
 
-  constructor(public fb: FormBuilder, public alertController: AlertController) {
+  constructor(public fb: FormBuilder, public alertController: AlertController, public usuarios : CrudService) {
+    this.getUsuarios();
     this.formLogin = this.fb.group({
       'name': new FormControl("", Validators.required),
       'password': new FormControl("", Validators.required)
     });
   }
 
+  getUsuarios(){
+    this.usuarios.getUsuarios().then(data => {
+      this.arrayUsuarios = data;
+    })
+  }
+
+
   ngOnInit() {
   }
+
+  
+
   async ingresar() {
     var f = this.formLogin.value;
     var user = JSON.parse(localStorage.getItem('user'));
