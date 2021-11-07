@@ -24,7 +24,17 @@ export class SignupPage implements OnInit {
    }
 
   ngOnInit() {
+    class Usuario{
+      id: number;
+      pwd: String;
+      nombre: String;
+      rut: String;
+      perfil: number;
+      cm: number;
+      espec: number
+    }
   }
+
   async guardar(){
     var f = this.formSignup.value;
 
