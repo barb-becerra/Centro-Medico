@@ -16,6 +16,7 @@ export class SignupPage implements OnInit {
   constructor(public fb: FormBuilder, public alertController:AlertController) {
     this.formSignup = this.fb.group({
       'name': new FormControl("",Validators.required),
+      'rut': new FormControl("", Validators.required),
       'password': new FormControl("",Validators.required),
       'confirmpassword': new FormControl("",Validators.required)
     });
