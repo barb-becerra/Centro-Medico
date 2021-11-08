@@ -31,7 +31,7 @@ export class CrudService {
 
   postUsuario(data){
     return new Promise((resolve, reject) =>{
-      this.http.post(this.url, JSON.stringify(data))
+      this.http.post(this.url, JSON.stringify(data), this.httpOptions)
       .subscribe(response =>{
         resolve(response);
       }, (error)=>{
