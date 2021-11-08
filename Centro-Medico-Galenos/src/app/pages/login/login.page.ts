@@ -8,7 +8,9 @@ import {
 } from '@angular/forms';
 
 import { CrudService } from 'src/app/servicios/crud.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { pickerController } from '@ionic/core';
+import { MatCalendar } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-login',
@@ -16,61 +18,52 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
+  aux = 1;
   arrayUsuarios: any;
-
+  usr: any
   formLogin: FormGroup;
 
-  constructor(public fb: FormBuilder, public alertController: AlertController, public usuarios : CrudService) {
-    this.getUsuarios();
+  constructor(public fb: FormBuilder, public alertController: AlertController, public usuarios: CrudService, router: Router) {
     this.formLogin = this.fb.group({
       'name': new FormControl("", Validators.required),
-      'password': new FormControl("", Validators.required)
+      'password': new FormControl("", Validators.required),
     });
   }
+  redireccionar(){
+  }
 
-  getUsuarios(){
+  getUsuarios() {
     this.usuarios.getUsuarios().then(data => {
       this.arrayUsuarios = data;
     })
   }
 
-
   ngOnInit() {
+    this.getUsuarios();
   }
 
-  
-
-  async ingresar() {
-    var f = this.formLogin.value;
-    var user = JSON.parse(localStorage.getItem('user'));
-    if (user.name == f.name && user.password == f.password) {
-      console.log('Ingresar');
-      const alert = await this.alertController.create({
-          cssClass: 'my-custom-class',
-          header: 'Sesion Iniciada!',
-          message: 'En la futura versión verás tus opciones disponibles',
-          buttons: [
-          { 
-            text: 'Entiendo!',
-            handler: () => {
-                console.log('Confirm Okay');
-              }
-          }
-          ]
-        });
-    
-        await alert.present();
-
-    } else {
-      const alert = await this.alertController.create({
-        header: 'Datos incorrectos',
-        message: 'Usuario no registrado!,  Por favor registrate antes de intentar iniciar sesion.',
-        buttons: ['Entendido!']
-      });
-
-      await alert.present();
-      return;
+  ingresar() {
+    class Usuario {
+      pwd: String;
+      nombre: String;
+      constructor(pwd, nombre) {
+        this.pwd = pwd
+        this.nombre = nombre
+      }
+    }
+    console.log(this.arrayUsuarios)
+    this.usr = new Usuario(this.formLogin.get('password').value, this.formLogin.get('name').value)
+    for (let i = 0; i < this.arrayUsuarios.length; i++) {
+      if (!(this.usr.nombre == this.arrayUsuarios[i].nombre && this.usr.pwd == this.arrayUsuarios[i].pwd)) {
+        this.aux = 1
+      }else{
+        console.log("Ingreso correcto")
+        this.redireccionar();
+        break;
+      }
+    }
+    if (this.aux == 0){
+      console.log("Usuario incorrecto")
     }
   }
 }
