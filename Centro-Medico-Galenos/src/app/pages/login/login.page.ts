@@ -9,8 +9,6 @@ import {
 
 import { CrudService } from 'src/app/servicios/crud.service';
 import { Router, RouterLink } from '@angular/router';
-import { pickerController } from '@ionic/core';
-import { MatCalendar } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-login',

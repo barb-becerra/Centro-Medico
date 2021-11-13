@@ -16,7 +16,9 @@ import { Router } from '@angular/router';
 
 export class SignupPage implements OnInit {
   usr: any;
+  arrayUsuarios: any;
   formSignup: FormGroup;
+  contador = 0;
   constructor(public fb: FormBuilder, public alertController:AlertController, public servicios : CrudService, private router: Router) {
     this.formSignup = this.fb.group({
       'name': new FormControl("",Validators.required),
@@ -26,7 +28,13 @@ export class SignupPage implements OnInit {
     });
    }
 
-   async guardar(){
+   getUsuarios() {
+    this.servicios.getUsuarios().then(data => {
+      this.arrayUsuarios = data;
+    })
+  }
+
+  async guardar(){
      
     class Usuario{
       
@@ -73,7 +81,7 @@ export class SignupPage implements OnInit {
           } 
         ]
     });
-      this.usr = new Usuario(11111,this.formSignup.get('password').value,this.formSignup.get('name').value,this.formSignup.get('rut').value,1,1,1);
+      this.usr = new Usuario(this.arrayUsuarios.length + 1, this.formSignup.get('password').value,this.formSignup.get('name').value,this.formSignup.get('rut').value,1,1,1);
       this.servicios.postUsuario(this.usr);
       console.log(this.usr)
       await alert.present();
@@ -82,6 +90,7 @@ export class SignupPage implements OnInit {
   }
 
   ngOnInit() {
+    this.getUsuarios();
     }
 
   }
