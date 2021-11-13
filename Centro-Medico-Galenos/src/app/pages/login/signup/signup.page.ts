@@ -71,7 +71,7 @@ export class SignupPage implements OnInit {
           } 
         ]
     });
-      this.usr = new Usuario(999,this.formSignup.get('password').value,this.formSignup.get('name').value,this.formSignup.get('rut').value,1,1,1);
+      this.usr = new Usuario(888,this.formSignup.get('password').value,this.formSignup.get('name').value,this.formSignup.get('rut').value,1,1,1);
       this.servicios.postUsuario(this.usr);
       console.log(this.usr)
       await alert.present();
