@@ -83,7 +83,6 @@ export class SignupPage implements OnInit {
     });
       this.usr = new Usuario(this.arrayUsuarios.length + 1, this.formSignup.get('password').value,this.formSignup.get('name').value,this.formSignup.get('rut').value,1,1,1);
       this.servicios.postUsuario(this.usr);
-      console.log(this.usr)
       await alert.present();
       this.router.navigate(['/login'])
     }

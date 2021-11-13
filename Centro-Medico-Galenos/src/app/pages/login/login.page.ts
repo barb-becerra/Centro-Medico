@@ -72,7 +72,6 @@ export class LoginPage implements OnInit {
           } 
         ]
     });
-      console.log("Usuario incorrecto")
       await alert.present();
     }
   }
