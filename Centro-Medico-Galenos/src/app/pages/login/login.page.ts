@@ -18,18 +18,18 @@ import { MatCalendar } from '@angular/material/datepicker';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  router: Router;
   aux = 1;
   arrayUsuarios: any;
   usr: any
   formLogin: FormGroup;
 
-  constructor(public fb: FormBuilder, public alertController: AlertController, public usuarios: CrudService, router: Router) {
+  constructor(public fb: FormBuilder, public alertController: AlertController, public usuarios: CrudService) {
     this.formLogin = this.fb.group({
       'name': new FormControl("", Validators.required),
       'password': new FormControl("", Validators.required),
     });
-  }
-  redireccionar(){
+    
   }
 
   getUsuarios() {
@@ -42,7 +42,8 @@ export class LoginPage implements OnInit {
     this.getUsuarios();
   }
 
-  ingresar() {
+  ingresar(router: Router) {
+    console.log(router);
     class Usuario {
       pwd: String;
       nombre: String;
@@ -58,7 +59,7 @@ export class LoginPage implements OnInit {
         this.aux = 1
       }else{
         console.log("Ingreso correcto")
-        this.redireccionar();
+        this.router.navigate(['/home']);
         break;
       }
     }
