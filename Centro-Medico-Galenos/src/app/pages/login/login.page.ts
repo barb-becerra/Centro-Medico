@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
     this.getUsuarios();
   }
 
-  ingresar(pagina: String) {
+  async ingresar(pagina: String) {
     class Usuario {
       pwd: String;
       nombre: String;
@@ -57,13 +57,25 @@ export class LoginPage implements OnInit {
         this.aux = 1
       }else{
         this.aux = 0;
-        console.log("Ingreso correcto")
         this.router.navigate([`${pagina}`]);
         break;
       }
     }
     if (this.aux == 1){
+      const alert = await this.alertController.create({
+        header: 'Error de Ingreso!',
+        message: 'Usuario o contraseña incorrectos;)',
+        buttons: [
+        { 
+          text: 'Entiendo!',
+          handler: () => {
+              console.log('Confirm Okay');
+            }
+          } 
+        ]
+    });
       console.log("Usuario incorrecto")
+      await alert.present();
     }
   }
 }

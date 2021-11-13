@@ -7,6 +7,7 @@ import{
 } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { CrudService } from 'src/app/servicios/crud.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -16,7 +17,7 @@ import { CrudService } from 'src/app/servicios/crud.service';
 export class SignupPage implements OnInit {
   usr: any;
   formSignup: FormGroup;
-  constructor(public fb: FormBuilder, public alertController:AlertController, public servicios : CrudService) {
+  constructor(public fb: FormBuilder, public alertController:AlertController, public servicios : CrudService, private router: Router) {
     this.formSignup = this.fb.group({
       'name': new FormControl("",Validators.required),
       'rut': new FormControl("", Validators.required),
@@ -26,6 +27,7 @@ export class SignupPage implements OnInit {
    }
 
    async guardar(){
+     
     class Usuario{
       
       id: number;
@@ -71,10 +73,11 @@ export class SignupPage implements OnInit {
           } 
         ]
     });
-      this.usr = new Usuario(888,this.formSignup.get('password').value,this.formSignup.get('name').value,this.formSignup.get('rut').value,1,1,1);
+      this.usr = new Usuario(11111,this.formSignup.get('password').value,this.formSignup.get('name').value,this.formSignup.get('rut').value,1,1,1);
       this.servicios.postUsuario(this.usr);
       console.log(this.usr)
       await alert.present();
+      this.router.navigate(['/login'])
     }
   }
 
