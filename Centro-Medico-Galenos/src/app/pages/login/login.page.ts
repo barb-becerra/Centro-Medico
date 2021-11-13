@@ -18,13 +18,12 @@ import { MatCalendar } from '@angular/material/datepicker';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  router: Router;
-  aux = 1;
+  aux = 0;
   arrayUsuarios: any;
   usr: any
   formLogin: FormGroup;
 
-  constructor(public fb: FormBuilder, public alertController: AlertController, public usuarios: CrudService) {
+  constructor(public fb: FormBuilder, public alertController: AlertController, public usuarios: CrudService, private router: Router) {
     this.formLogin = this.fb.group({
       'name': new FormControl("", Validators.required),
       'password': new FormControl("", Validators.required),
@@ -42,8 +41,7 @@ export class LoginPage implements OnInit {
     this.getUsuarios();
   }
 
-  ingresar(router: Router) {
-    console.log(router);
+  ingresar(pagina: String) {
     class Usuario {
       pwd: String;
       nombre: String;
@@ -58,12 +56,13 @@ export class LoginPage implements OnInit {
       if (!(this.usr.nombre == this.arrayUsuarios[i].nombre && this.usr.pwd == this.arrayUsuarios[i].pwd)) {
         this.aux = 1
       }else{
+        this.aux = 0;
         console.log("Ingreso correcto")
-        this.router.navigate(['/home']);
+        this.router.navigate([`${pagina}`]);
         break;
       }
     }
-    if (this.aux == 0){
+    if (this.aux == 1){
       console.log("Usuario incorrecto")
     }
   }
