@@ -38,8 +38,8 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     this.getUsuarios();
   }
-
   async ingresar(pagina: String) {
+    this.getUsuarios();
     class Usuario {
       pwd: String;
       nombre: String;
